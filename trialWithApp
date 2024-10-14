@@ -1,0 +1,38 @@
+<template>
+    <template lwc:if={ready}>
+      <div id="display">
+        <div>Name: {name}</div>
+        <div>Description: {description}</div>
+        <lightning-badge label={material}></lightning-badge>
+        <lightning-badge label={category}></lightning-badge>
+        <div>Price: {price}</div>
+        <div><img src={pictureUrl} alt={name}/></div>
+      </div>
+    </template>
+    <template lwc:else>
+      <div id="waiting">Loading…</div>
+    </template>
+  </template>
+
+------------------------------------------------------------------------
+import { LightningElement } from 'lwc';
+export default class App extends LightningElement {
+  name = 'Electra X4';
+  description = 'A sweet bike built for comfort.';
+  category = 'Mountain';
+  material = 'Steel';
+  price = '$2,700';
+  pictureUrl = 'https://s3-us-west-1.amazonaws.com/sfdc-demo/ebikes/electrax4.jpg';
+  ready = false;
+  connectedCallback() {
+    setTimeout(() => {
+      this.ready = true;
+    }, 3000);
+  }
+}
+-------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <isExposed>false</isExposed>
+</LightningComponentBundle>
