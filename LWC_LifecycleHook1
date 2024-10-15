@@ -40,3 +40,45 @@ export default class LifecycleHooksExample extends LightningElement
         <target>lightning__HomePage</target>
     </targets>
 </LightningComponentBundle>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<template>
+    <h3>Child component</h3>
+</template>
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import { LightningElement } from 'lwc';
+
+export default class LifecycleHookChild extends LightningElement 
+{
+    constructor()
+    {
+        super()
+        console.log('Call from child constructor');
+    }
+    connectedCallback()
+    {
+        console.log('Call received in the connectedCallback in child component.');
+    }
+    renderedCallback()
+    {
+        console.log('Call received in the renderedCallback in child component.');
+    }
+    disconnectedCallback()
+    {
+        console.log('Call received in the disconnectedCallback in child component.');
+    }
+    errorCallback()
+    {
+        console.log('Call received from error callback in child component');
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__HomePage</target>
+    </targets>
+</LightningComponentBundle>
