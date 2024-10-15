@@ -1,0 +1,42 @@
+<template>
+    <h2>Parent component</h2>
+    <lightning-button variant="brand" label="Show/Hide" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+
+    <c-lifecycle-hook-child></c-lifecycle-hook-child>
+</template>
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+import { LightningElement } from 'lwc';
+
+export default class LifecycleHooksExample extends LightningElement 
+{
+    constructor()
+    {
+        super()
+        console.log('Call received in the constructor.');
+    }
+    connectedCallback()
+    {
+        console.log('Call received in the connectedCallback.');
+    }
+    renderedCallback()
+    {
+        console.log('Call received in the renderedCallback.');
+    }
+    errorCallback()
+    {
+        console.log('Call received in the errorcallback.');
+    }
+
+
+    
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <isExposed>true</isExposed>
+
+    <targets>
+        <target>lightning__HomePage</target>
+    </targets>
+</LightningComponentBundle>
